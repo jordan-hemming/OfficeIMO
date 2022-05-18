@@ -173,6 +173,18 @@ namespace OfficeIMO.Word {
             //}
         }
 
+        public WordParagraph AddParagraph(WordParagraph paragraph = null) {
+            if (paragraph == null) {
+                paragraph = new WordParagraph();
+            }
+            _tableCell.Append(paragraph._paragraph);
+            return paragraph;
+        }
+
+        public WordParagraph AddParagraph(string text) {
+            return AddParagraph().SetText(text);
+        }
+
         public void Remove() {
             _tableCell.Remove();
             //_wordTableRow.Cells.Remove(this);
